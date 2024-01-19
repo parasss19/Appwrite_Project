@@ -15,7 +15,7 @@ export class Service {
     this.storage = new Storage(this.client);
   }
 
-  //note slug = it act as document_id (we are updating slug)
+  //note slug = it act as "document_id" (we are updating slug)
 
   //createPost
   async createPost({title, slug, content, featuredimage, status, userid}) {
@@ -100,7 +100,40 @@ export class Service {
    }
 
 
-   //
+   //File delete and upload
+   async uploadFile(file){
+     try {
+        return await this.storage.uploadFile(
+            config.appwriteBucketId,
+            ID.unique(),
+            file
+        )
+     } catch (error) {
+        console.log("Appwrite service uploadFile error", error)
+        return false;
+     }
+   }
+
+   async deleteFile(fileId){
+    try {
+        await this.storage.deleteFile(
+            config.appwriteBucketId,
+            fileId
+        )
+        return true
+    } catch (error) {
+        console.log("Appwrite service delterFile error", error)
+        return false;
+    }
+   }
+
+   //file preview
+   getFilePreview(fileId){
+     return this.storage.getFilePreview(
+        config.appwriteBucketId,
+        fileId
+     )
+   }
 
 }
 
