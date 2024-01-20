@@ -4,8 +4,7 @@ import { useDispatch } from "react-redux"
 import auth from "./appwrite/auth"
 import { login, logout } from "./featuresSlice/authSlice" 
 
-import Header from './components/Header/header'
-import Footer from './components/Footer/footer'
+import { Header, Footer } from "./components"
 import { Outlet } from "react-router-dom"
 
 const App = () => {
@@ -18,8 +17,7 @@ const App = () => {
 
   //useEffect
   useEffect(()=>{
-     auth.getCurrentUser()
-       
+    auth.getCurrentUser() 
       .then((data)=> {
          if(data){
           dispatch(login({data}))
@@ -38,8 +36,8 @@ const App = () => {
           ? null        //if loading is true it show nothing 
 
           : (
-            <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
-                <div className="w-full block">
+            <div className="min-h-screen flex flex-wrap content-between justify-center bg-gray-400">
+                <div className=" ">
                   <Header/>
 
                   <main>
