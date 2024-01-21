@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"              //used to send info(state update) to store whether user is loged in or not
 import auth from "../../appwrite/auth"
 import { logout } from "../../featuresSlice/authSlice";
 
@@ -12,7 +12,7 @@ const LogoutBtn = () => {
             dispatch(logout())     //it is the logout action inside the authSlice.js
           })
           .catch((error)=>{
-              console.log("Logout error", error)
+              console.log("LogoutBtn :: Error ::", error)
           })
     }
 
