@@ -1,5 +1,5 @@
 import {Editor} from '@tinymce/tinymce-react'
-import { Controller } from 'react-hook-form'    //as we are building RTE in separate compoent and we use it in other compoents too so we use Controller for reference (we can also use forwardRef hook)
+import { Controller } from 'react-hook-form'    //as we are building RTE in separate compoent and we use it in other compoents, so we use Controller for reference (we can also use forwardRef hook)
 
 function RTE({ name, control, label, defaultValue=""}) {
   return (

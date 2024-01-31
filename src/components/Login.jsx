@@ -80,7 +80,6 @@ function Login() {
 
                   {...register ('password', {
                       required : true,
-                      validate 
                     })
                   }
                 />
